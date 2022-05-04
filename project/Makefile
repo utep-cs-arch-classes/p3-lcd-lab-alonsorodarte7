@@ -17,4 +17,4 @@ load: funtoy.elf
 	msp430loader.sh $^
 
 clean:
-	rm -f *.o *~ *.elf
+	rm -f *.o *~ *.elf *#
