@@ -1,4 +1,4 @@
-# makefile configuration
+# makfile configuration
 CPU             	= msp430g2553
 CFLAGS          	= -mmcu=${CPU} -Os -I../h
 LDFLAGS		= -L../lib -L/opt/ti/msp430_gcc/include/
@@ -17,4 +17,4 @@ load: funtoy.elf
 	msp430loader.sh $^
 
 clean:
-	rm -f *.o *~ *.elf *#
+	rm -f *.o *~ *.elf

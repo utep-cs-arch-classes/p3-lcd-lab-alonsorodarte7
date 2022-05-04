@@ -152,12 +152,9 @@ char red_25()                /* 25% brightness red */
 }
 
 char green_on_all()/* 100% brightness green */
-
-
+{
   P1OUT |= LED_GREEN;
-
   return 1;
-
 }
 
 char toggle_green()/* 50% brightness green */
