@@ -20,12 +20,12 @@ switch_update_interrupt_sense()
 }
 
 void
-switch_init()/* setup switches */
+switch_init()                    /* setup switches */
 {
-  P2REN |= SWITCHES;/* enables resistors for switches */
-  P2IE |= SWITCHES;/* enable interrupts from switches */
-  P2OUT |= SWITCHES;/* pull-ups for switches */
-  P2DIR &= ~SWITCHES;/* set switches' bits for input */
+  P2REN |= SWITCHES;             /* enables resistors for switches */
+  P2IE |= SWITCHES;              /* enable interrupts from switches */
+  P2OUT |= SWITCHES;             /* pull-ups for switches */
+  P2DIR &= ~SWITCHES;            /* set switches' bits for input */
   switch_update_interrupt_sense();
   master = 0;
 }
@@ -57,7 +57,7 @@ switch_interrupt_handler()
       secCount = 0;
       redrawScreen = 0;
       redrawScreen2 = 0;
-      master = 4;/* updated the master state */
+      master = 4;                 /* updated the master state */
       buzzer_set_period(1000000);
     }
     else if ((p2val & SW2) == 0){ /* reload Main Menu */

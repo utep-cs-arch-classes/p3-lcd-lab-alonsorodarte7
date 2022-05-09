@@ -240,4 +240,4 @@ char green_25()/* 25% brightness green */
   return 1;
 }
 
-char state_advance(char substateLed);              /* function written in assembly in state_advance.s */
+char state_advance(char substateLed);       /* function written in assembly in state_advance.s */
