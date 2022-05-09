@@ -51,16 +51,15 @@ void drawString8x12(u_char col, u_char row, char *string,u_int fgColorBGR, u_int
 /* Draws Shape: Diamond on top of Triangle */
 void draw_shape(u_char offc, u_char offr, u_int color, u_int color2)
 {
-  /* Diamond */
+  /* Diamond */ 
   for(u_char r = 0; r < 10; r++){
     for(u_char c = 0; c <= r; c++){
-      drawPixel(offc-c, offr+r, color);
-      drawPixel(offc+c, offr+r, color);
-      drawPixel(offc-c, offr+19-r, color);
-      drawPixel(offc+c, offr+19-r, color);
+      drawPixel(offc-c,offr+r,color);
+      drawPixel(offc+c,offr+r,color);
+      drawPixel(offc-c,offr+19-r,color);
+      drawPixel(offc+c,offr+19-r,color);
     }
   }
-
   /* Triangle */
   for(u_char r = 0; r < 10; r++){
     for(u_char c = 0; c <= r; c++){

@@ -95,7 +95,7 @@ void main()
   clearScreen(COLOR_BLACK);
   enableWDTInterrupts();      /**< enable periodic interrupt */
   or_sr(0x8);              /**< GIE (enable interrupts) */
-
+  int y=0;
   while (1) {/* forever */
     if (redrawScreen) {
       switch(master){
@@ -112,15 +112,21 @@ void main()
 	  main_menu_advance();
 	}
 	else{                       /* then it draws the main text that flips colors */
-	  drawString8x12(screenWidth/2-36, screenHeight/2-55,"********", fontFgColor, COLOR_BLACK);
-	  drawString5x7(screenWidth/2-48, screenHeight/2-40,"Press S1 to Play", fontFgColor, COLOR_BLACK);
+	  drawString8x12(screenWidth/2-36, screenHeight/2-53,"********", fontFgColor, COLOR_BLACK);
+	  drawString5x7(screenWidth/2-45, screenHeight/2-40,"Press S1 to Play", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-27, screenHeight/2-25,"Press S2", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-27, screenHeight/2-15,"to reload", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-45, screenHeight/2,"Press S3 to Play", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-30, screenHeight/2+10,"Buzzer", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-45, screenHeight/2+25,"Press S4 to Play ", fontFgColor, COLOR_BLACK);
 	  drawString5x7(screenWidth/2-32, screenHeight/2+35,"LED", fontFgColor, COLOR_BLACK);
-	  draw_shape(screenWidth/2, screenHeight/2+50, fontFgColor, fontFgColor2);
+	  draw_shape(y, screenHeight/2+50, COLOR_BLACK, COLOR_BLACK);
+	  draw_shape(y+10, screenHeight/2+50, fontFgColor, fontFgColor2);
+	  y+=10;
+	  if(y > screenWidth-10){
+	    draw_shape(y,screenHeight/2+50,COLOR_BLACK,COLOR_BLACK);
+	    y=0;
+	  }
 	}
 	break;
       case 1:
